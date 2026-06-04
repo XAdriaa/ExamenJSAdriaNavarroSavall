@@ -36,25 +36,26 @@
                 <form id="timeForm" class="row g-3">
                     <div class="col-md-4">
                         <label class="form-label">Nombre Momento</label>
-                        <input type="text" id="timeName" class="form-control" placeholder="Ej: Patio">
+                        <input type="text" id="timeName" class="form-control" placeholder="Ej: Patio" maxlength="50" pattern="[A-Za-z\s]{2,50}" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Hora</label>
-                        <input type="time" id="timeHour" class="form-control">
+                        <input type="time" id="timeHour" class="form-control" required>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Segs</label>
-                        <input type="number" id="timeDuration" class="form-control">
+                        <input type="number" id="timeDuration" class="form-control" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Canción</label>
-                        <select id="timeSongSelect" class="form-select">
+                        <select id="timeSongSelect" class="form-select" required>
                         </select>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-success">Asignar a Horario Actual</button>
+                        <button type="submit" class="btn btn-success" id="enviar">Asignar a Horario Actual</button>
                     </div>
                 </form>
+                <p id="missatgeError"></p>
             </div>
         </div>
 
