@@ -4,8 +4,11 @@ async function main() {
     await extraerDatos();
 
     document.getElementById("enviar").addEventListener("click", validar, false);
+    
+    const 
 
     pintarLocal();
+    llenarSelect();
 
 }
 
@@ -35,6 +38,8 @@ function pintarLocal() {
 
 
     let horario = dataSchedule[0]
+
+    localStorage.setItem("Favorits", JSON.stringify(horario.times));
 
     console.log("Extrau Local", horario.times);
 
@@ -90,6 +95,8 @@ function nombreCancion(id) {
 
     let playList = dataLocal.playlists[0].songs;
 
+    localStorage.setItem("Favorits",JSON.stringify(playList));
+
     let nombreCancion
 
     playList.forEach(element => {
@@ -113,6 +120,22 @@ function nombreCancion(id) {
 //
 //      console.log(id);
 //  }
+
+
+function llenarSelect(){
+
+let favorits = JSON.parse(localStorage.getItem("Favorits"));
+
+console.log("datos select", favorits);
+const seleccionar = document.getElementById("timeSongSelect");
+favorits.forEach(element => {
+    const opciones = document.createElement("option");
+    opciones.value = element.id;
+    opciones.appendChild(document.createTextNode(element.name));
+    seleccionar.appendChild(opciones);
+});
+
+}
 
 
 function validarNombre() {
