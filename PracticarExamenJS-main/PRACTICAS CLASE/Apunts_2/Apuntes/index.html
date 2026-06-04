@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pràctica Examen JS</title>
+
+    <!-- jQuery i jQuery UI (en l'examen ja estaran carregats) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="prueba.js"></script>
+
+    <!-- CSS mínim només per veure-ho clar -->
+    <style>
+        .item {
+            border: 1px solid #ccc;
+            padding: 8px;
+            margin: 6px 0;
+        }
+
+        #missatgesError {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Pràctica examen JavaScript</h1>
+
+    <!-- BOTONS D'ORDENACIÓ -->
+    <section>
+        <button id="btnAsc">Ordenar Ascendent</button>
+        <button id="btnDesc">Ordenar Descendent</button>
+        <button id="btnRel">Relevància</button>
+    </section>
+
+    <hr>
+
+    <!-- FILTRES -->
+    <section>
+        <label for="filtreRol">Filtrar per rol:</label>
+        <select id="filtreRol">
+            <option value="">-- Tots --</option>
+        </select>
+
+        <button id="btnFiltrar">Aplicar filtres</button>
+        <button id="btnEliminarFiltres">Eliminar filtres</button>
+    </section>
+
+    <hr>
+
+    <!-- AUTOCOMPLETE -->
+    <section>
+        <label for="cercador">Buscar per nom:</label>
+        <input type="text" id="cercador">
+    </section>
+
+    <section id="filtres-any-km">
+        <h3>Filtrar per Any i Quilòmetres</h3>
+
+        <!-- Filtre Any -->
+        <label for="anyDesde">Any des de:</label>
+        <input type="number" id="anyDesde" min="1990" max="2025" value="1990">
+
+        <label for="anyFins">Any fins a:</label>
+        <input type="number" id="anyFins" min="1990" max="2025" value="2025">
+
+        <br><br>
+
+        <!-- Filtre Quilòmetres -->
+        <label for="kmDesde">Quilòmetres des de:</label>
+        <input type="number" id="kmDesde" min="0" value="0">
+
+        <label for="kmFins">Quilòmetres fins a:</label>
+        <input type="number" id="kmFins" min="0" value="300000">
+
+        <br><br>
+
+        <!-- Botó per aplicar els filtres -->
+        <button id="btnFiltrarCOSAS">Aplicar filtres</button>
+    </section>
+
+
+
+    <hr>
+
+    <!-- LLISTAT -->
+    <section>
+        <h2>Llistat</h2>
+        <div id="llistat"></div>
+    </section>
+
+    <hr>
+
+    <!-- FORMULARI -->
+    <section>
+        <h2>Formulari de prova</h2>
+        <div id="missatgesError"></div>
+    </section>
+    <form id="formulariCotxe">
+
+        <fieldset>
+            <legend>Afegir nou cotxe</legend>
+
+            <!-- MARCA -->
+            <!-- MARCA -->
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" name="marca" required pattern="[A-Za-zÀ-ÿ ]{2,}" minlength="3"
+                maxlength="100">
+
+
+            <!-- MODEL -->
+            <label for="model">Model</label>
+            <input type="text" id="model" name="model" pattern="[A-Za-z0-9À-ÿ\\s]{1,}" title="Model obligatori">
+
+            <!-- PREU -->
+            <label for="preu">Preu (€)</label>
+            <input type="number" id="preu" name="preu" min="0">
+
+            <!-- ANY -->
+            <label for="any">Any</label>
+            <input type="number" id="any" name="any" min="1990" max="2025">
+
+            <!-- QUILÒMETRES -->
+            <label for="quilometres">Quilòmetres</label>
+            <input type="number" id="quilometres" name="quilometres" min="0">
+
+            <!-- COMBUSTIBLE -->
+            <label for="combustible">Combustible</label>
+            <select id="combustible" name="combustible">
+                <option value="">-- Selecciona --</option>
+                <option value="Gasolina">Gasolina</option>
+                <option value="Dièsel">Dièsel</option>
+                <option value="Híbrid">Híbrid</option>
+                <option value="Elèctric">Elèctric</option>
+            </select>
+
+            <!-- BOTÓ -->
+            <button id="afegir" type="submit">Afegir cotxe</button>
+
+        </fieldset>
+
+    </form>
+    <p id="alerta"></p>
+
+
+
+</body>
+
+</html>

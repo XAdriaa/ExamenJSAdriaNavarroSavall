@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreta de banco</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</head>
+<body class="bg-dark">
+        <div class="bg-dark text-white text-center py-3 mt-5 d-flex flex-column align-items-center ">
+            <div class="w-75 bg-info rounded p-3 ">
+                <h1 class="text-start fw-bold">Libro Contable</h1>
+            </div>
+            <div class="w-100">
+                <table class="rounded w-75 mx-auto mt-5 bg-secondary" id="idTable">
+                    <thead>
+                        <tr>
+                            <th>Borrar</th>
+                            <th>Fecha</th>
+                            <th>Concepto</th>
+                            <th>D/H</th>
+                            <th>Importe</th>
+                            <th>Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="idTbody">
+                        <!-- Aquí se insertarán las filas de la tabla -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <form id="idForm" novalidate>
+                                    <button type="submit" class="btn btn-light">Grabar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <input type="date" id="fecha" name="fecha" class="form-control" form="idForm" required/>
+                            </td>
+                            <td>
+                                <input type="text" id="concepto" name="concepto" class="form-control" form="idForm" placeholder="Concepto" required/>
+                            </td>
+                            <td>
+                                <select id="selectDH" class="form-select" form="idForm" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="Debe">Debe</option>
+                                    <option value="Haber">Haber</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" id="importe" name="importe" class="form-control" form="idForm" placeholder="Importe" min="0" required/>
+                            </td>
+                            <td>
+                                <p id="missatgeError" class="text-danger"></p>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+</body>
+</html>

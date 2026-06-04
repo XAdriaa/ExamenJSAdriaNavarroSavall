@@ -1,0 +1,46 @@
+{
+  "Cars": [
+    {
+      "id": "c1",
+      "marca": "Toyota",
+      "model": "Corolla",
+      "preu": 14500,
+      "any": 2019,
+      "quilometres": 85000,
+      "combustible": "Híbrid"
+    },
+    {
+      "id": "c2",
+      "marca": "Seat",
+      "model": "Ibiza",
+      "preu": 9900,
+      "any": 2017,
+      "quilometres": 120000,
+      "combustible": "Gasolina"
+    },
+    {
+      "id": "c3",
+      "marca": "Tesla",
+      "model": "Model 3",
+      "preu": 28900,
+      "any": 2022,
+      "quilometres": 23000,
+      "combustible": "Elèctric"
+    },
+    {
+      "id": "c4",
+      "marca": "Volkswagen",
+      "model": "Golf",
+      "preu": 17900,
+      "any": 2020,
+      "quilometres": 67000,
+      "combustible": "Dièsel"
+    }
+  ],
+  "Brands": [
+    { "id": "b1", "name": "Toyota" },
+    { "id": "b2", "name": "Seat" },
+    { "id": "b3", "name": "Tesla" },
+    { "id": "b4", "name": "Volkswagen" }
+  ]
+}

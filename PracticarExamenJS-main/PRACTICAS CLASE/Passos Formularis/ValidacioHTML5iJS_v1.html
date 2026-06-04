@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallidació de formulari amb HTML5 i JS</title>
+    <!--<script type="text/javascript"src="ValidacioHTML5iJS.js"></script>-->
+</head>
+<body>
+    <head>
+        <title>Formulari HTML5 i JS</title>
+    </head>
+    <form action="procesar.php" method="post" id=elFormulari">
+        <table>
+            <tr>
+                <td> Nom: </td> 
+                <td>
+                    <input type="text" name="nom" id="nom" />
+                </td>
+            </tr>
+            <tr>   
+                <td> data neixement: </td> 
+                <td>
+                    <input type="text" name="neix" id="neix" />
+                </td>
+            </tr>
+            <tr>
+                <td> telèfon: </td> 
+                <td>
+                    <input type="text" name="tel" id="tel" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                 <td>
+                <input type="reset" name="limpiar" id="limpiar" value="Reset"/>
+               <input type="submit" name="enviar" id="enviar" value="Enviar"/> </td>
+            </tr>
+            
+        </table>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "User": [
+    {
+      "id": "1",
+      "name": "Juan Pérez",
+      "email": "juan@example.com",
+      "rol": "admin",
+      "any": 2019,
+      "quilometres": 120000
+    },
+    {
+      "id": "2",
+      "name": "María Gómez",
+      "email": "maria@example.com",
+      "rol": "editor",
+      "any": 2021,
+      "quilometres": 45000
+    },
+    {
+      "id": "3",
+      "name": "Carlos Ruiz",
+      "email": "carlos@example.com",
+      "rol": "editor",
+      "any": 2018,
+      "quilometres": 180000
+    },
+    {
+      "id": "4",
+      "name": "Lucía Torres",
+      "email": "lucia@example.com",
+      "rol": "admin",
+      "any": 2023,
+      "quilometres": 12000
+    }
+  ],
+  "Category": [
+    {
+      "id": "1",
+      "name": "editor"
+    },
+    {
+      "id": "2",
+      "name": "admin"
+    }
+  ]
+}
