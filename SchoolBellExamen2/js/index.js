@@ -5,7 +5,15 @@ async function main() {
 
     document.getElementById("enviar").addEventListener("click", validar, false);
     
-    const 
+    const form = document.getElementById("timeForm");
+    form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    esborrarError();
+
+    guardarDatos(event);
+    document.getElementById("timeForm").reset();
+    });
+
 
     pintarLocal();
     llenarSelect();
@@ -33,19 +41,27 @@ async function extraerDatos() {
 }
 
 function pintarLocal() {
+    if()
     let dataLocal = JSON.parse(localStorage.getItem("data"));
     let dataSchedule = dataLocal.schedules
-
-
     let horario = dataSchedule[0]
 
+    localStorage.setItem("hivern",JSON.stringify(horario));
     localStorage.setItem("Favorits", JSON.stringify(horario.times));
 
     console.log("Extrau Local", horario.times);
 
     const table = document.getElementById("table");
 
-    horario.times.forEach(element => {
+    let hivern = JSON.parse(localStorage.getItem("hivern"));
+
+    while (table.firstChild) {
+
+        table.removeChild(table.firstChild);
+
+    }
+
+    hivern.times.forEach(element => {
         const tr = document.createElement("tr");
 
         const tdID = document.createElement("td")
@@ -137,6 +153,34 @@ favorits.forEach(element => {
 
 }
 
+function guardarDatos(event){
+    event.preventDefault();
+
+    const nombre = document.getElementById("timeName").value;
+    const hora = document.getElementById("timeHour").value;
+    const seg = document.getElementById("timeDuration").value;
+    const cancion = document.getElementById("timeSongSelect").value;
+
+    const horario = {
+        id: Date.now(),
+        nombre,
+        hora,
+        seg,
+        songId: cancion
+    }
+
+    console.log("horario nuevo",horario);
+    let horarioViejo = JSON.parse(localStorage.getItem("hivern"));
+    let horarioNuevo = horario;
+
+    console.log("horario viejo",horarioViejo);
+
+    horarioViejo.times.push(horarioNuevo);
+    localStorage.setItem("hivern", JSON.stringify(horarioViejo));
+
+    pintarLocal();
+}
+
 
 function validarNombre() {
 
@@ -206,7 +250,7 @@ function validar(e) {
     esborrarError();
     e.preventDefault();
     if (validarNombre() && validarHora() && validarDuracion() && validarCancion()) {
-        document.getElementById("formulario-producto").requestSubmit();
+        document.getElementById("timeForm").requestSubmit();
         return true;
     } else {
         return false;
