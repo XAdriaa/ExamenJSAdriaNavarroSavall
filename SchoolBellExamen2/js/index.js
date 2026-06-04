@@ -30,7 +30,7 @@ function pintarLocal(){
     let dataLocal = JSON.parse(localStorage.getItem("data"));
     let dataSchedule = dataLocal.schedules
     
-
+    
 
     let horario = dataSchedule[0]
 
@@ -66,14 +66,18 @@ function pintarLocal(){
 
         const tdAccion = document.createElement("td")
         const btnEliminar = document.createElement("button");
+        const Nodebtn = document.createTextNode("Borrar");
+        btnEliminar.classList.add("btn", "btn-outline-danger");
+        btnEliminar.appendChild(Nodebtn);
         tdAccion.appendChild(btnEliminar);
         
-
-        tr.appendChild(tdAccion);
-        tr.appendChild(tdCancion);
+        tr.appendChild(tdID);
         tr.appendChild(tdNombre);
         tr.appendChild(tdHora);
-        tr.appendChild(tdID);
+        tr.appendChild(tdDuracion);
+        tr.appendChild(tdCancion)
+        tr.appendChild(tdAccion);
+
         table.appendChild(tr);
     });
 
