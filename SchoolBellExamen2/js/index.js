@@ -4,6 +4,7 @@ async function main(){
     await extraerDatos();
 
     pintarLocal();
+
 }
 
 async function extraerDatos(){
@@ -30,7 +31,6 @@ function pintarLocal(){
     let dataLocal = JSON.parse(localStorage.getItem("data"));
     let dataSchedule = dataLocal.schedules
     
-    
 
     let horario = dataSchedule[0]
 
@@ -40,9 +40,6 @@ function pintarLocal(){
 
     horario.times.forEach(element => {
         const tr = document.createElement("tr");
-
-        
-        
 
         const tdID = document.createElement("td")
         const NodeID = document.createTextNode(element.id);
@@ -61,7 +58,7 @@ function pintarLocal(){
         tdDuracion.appendChild(NodeDuracion);
 
         const tdCancion = document.createElement("td")
-        const NodeCancion = document.createTextNode(element.songId);
+        const NodeCancion = document.createTextNode(nombreCancion(element.songId));
         tdCancion.appendChild(NodeCancion);
 
         const tdAccion = document.createElement("td")
@@ -80,6 +77,29 @@ function pintarLocal(){
 
         table.appendChild(tr);
     });
+
+    
+}
+
+function nombreCancion(id){
+    let dataLocal = JSON.parse(localStorage.getItem("data"));
+
+    let playList = dataLocal.playlists[0].songs;
+
+    let nombreCancion
+
+    playList.forEach(element => {
+        if(id === element.id){
+            nombreCancion = element.name
+        }
+    });
+
+    
+
+    console.log("playList disponibles",nombreCancion)
+
+    return nombreCancion;
+
 
     
 }
