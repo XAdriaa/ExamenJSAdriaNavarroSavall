@@ -41,19 +41,21 @@ async function extraerDatos() {
 }
 
 function pintarLocal() {
-    if()
+    let horario = []
+    if(horario != null){
     let dataLocal = JSON.parse(localStorage.getItem("data"));
     let dataSchedule = dataLocal.schedules
     let horario = dataSchedule[0]
-
     localStorage.setItem("hivern",JSON.stringify(horario));
     localStorage.setItem("Favorits", JSON.stringify(horario.times));
+    }
 
     console.log("Extrau Local", horario.times);
 
     const table = document.getElementById("table");
 
     let hivern = JSON.parse(localStorage.getItem("hivern"));
+    
 
     while (table.firstChild) {
 
@@ -164,9 +166,9 @@ function guardarDatos(event){
     const horario = {
         id: Date.now(),
         nombre,
-        hora,
-        seg,
-        songId: cancion
+        hour: Number(hora),
+        duration: Number(seg),
+        songId: Number(cancion)
     }
 
     console.log("horario nuevo",horario);
